@@ -16,6 +16,7 @@ class SimultaneousSelection:
 
 
 def validate_duration(duration):
+    """ В связанные привычки могут попасть только - приятные."""
     if duration and duration > 120:
         raise ValidationError("время выполнения не должно превышать 120 секунд")
 
@@ -23,7 +24,18 @@ def validate_duration(duration):
 class ConnectionHabitCheck:
 
     def __call__(self, habit):
-        if not habit.get("connection_habit").nice_habit_bool:
-            raise ValidationError(
-                "В связанные привычки могут попасть только - приятные..."
-            )
+        if habit.get("connection_habit"):
+            if not habit.get("connection_habit").nice_habit_bool:
+                raise ValidationError(
+                    "В связанные привычки могут попасть только - приятные..."
+                )
+
+
+class NiceHabitRewardCheck:
+
+    def __call__(self, habit):
+        if habit.get("nice_habit_bool"):
+            if habit.get("reward") or habit.get("connection_habit"):
+                raise ValidationError(
+                    "У приятной привычки не может быть вознаграждения или связанной привычки"
+                )
