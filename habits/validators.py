@@ -39,3 +39,8 @@ class NiceHabitRewardCheck:
                 raise ValidationError(
                     "У приятной привычки не может быть вознаграждения или связанной привычки"
                 )
+
+
+def periodicity_check(periodicity):
+    if periodicity and periodicity > 7:
+        raise ValidationError("Нельзя выполнять привычку реже, чем 1 раз в 7 дней.")
