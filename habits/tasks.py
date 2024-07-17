@@ -7,7 +7,7 @@ from users.models import User
 
 
 @shared_task
-def tg_message():
+def tg_message():  # отправка уведомлений
     users = User.objects.all()
 
     for user in users:
@@ -27,5 +27,5 @@ def tg_message():
                             habit.check_periodicity = 0
                             habit.save()
                             send_telegram_message(
-                                chat_id, f"Пора выполнить привычку:{habit}"
+                                chat_id, f"Пора выполнить привычку: {habit}"
                             )

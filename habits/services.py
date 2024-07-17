@@ -2,7 +2,7 @@ import requests
 from config.settings import BOT_TOKEN
 
 
-def send_telegram_message(chat_id, message):
+def send_telegram_message(chat_id, message):  # интеграция с Телеграмм
     params = {
         "text": message,
         "chat_id": chat_id,
