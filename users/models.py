@@ -19,6 +19,12 @@ class User(AbstractUser):
     last_login = models.DateTimeField(
         auto_now=True, verbose_name="Время последнего посещения", **NULLABLE
     )
+    tg_chat_id = models.CharField(
+        max_length=100,
+        verbose_name="Телеграм chat-id",
+        help_text="Укажите телеграм chat-id",
+        **NULLABLE
+    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

@@ -1,6 +1,7 @@
 from django.db import models
 
 from config.settings import AUTH_USER_MODEL
+import datetime
 
 NULLABLE = {"null": True, "blank": True}
 
@@ -17,7 +18,11 @@ class Habit(models.Model):
     place = models.CharField(
         max_length=150, verbose_name="Место выполнения", **NULLABLE
     )
-    start_time = models.TimeField(verbose_name="Время начала выполнения", **NULLABLE)
+    start_time = models.TimeField(
+        default=datetime.datetime.now().time(),
+        verbose_name="Время начала выполнения",
+        **NULLABLE,
+    )
     action = models.CharField(max_length=150, verbose_name="Действие")
     nice_habit_bool = models.BooleanField(
         default=False, verbose_name="Признак приятной привычки"
@@ -26,7 +31,10 @@ class Habit(models.Model):
         "self", on_delete=models.CASCADE, verbose_name="Связанная привычка", **NULLABLE
     )
     periodicity = models.IntegerField(
-        default=1, verbose_name="периодичность напоминания в днях"
+        default=3, verbose_name="периодичность напоминания в днях"
+    )
+    check_periodicity = models.IntegerField(
+        default=0, verbose_name="проверка периодичности"
     )
     reward = models.CharField(max_length=150, verbose_name="Вознаграждение", **NULLABLE)
     duration = models.TimeField(verbose_name="Продолжительность выполнения", **NULLABLE)

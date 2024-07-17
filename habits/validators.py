@@ -16,7 +16,7 @@ class SimultaneousSelection:
 
 
 def validate_duration(duration):
-    """ В связанные привычки могут попасть только - приятные."""
+    """В связанные привычки могут попасть только - приятные."""
     if duration and duration > 120:
         raise ValidationError("время выполнения не должно превышать 120 секунд")
 

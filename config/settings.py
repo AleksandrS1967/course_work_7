@@ -27,11 +27,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "rest_framework",
     "rest_framework_simplejwt",
     "django_filters",
-    'django_celery_beat',
+    "django_celery_beat",
     "habits",
     "users",
 ]
@@ -148,8 +147,12 @@ CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 
 CELERY_BEAT_SCHEDULE = {
-    'task-name': {
-        'task': 'habits.tasks.tg_message',  # Путь к задаче
-        'schedule': timedelta(seconds=10),  # Расписание выполнения задачи (например, каждые 10 минут)
+    "task-name": {
+        "task": "habits.tasks.tg_message",  # Путь к задаче
+        "schedule": timedelta(
+            seconds=10
+        ),  # Расписание выполнения задачи (например, каждые 10 минут)
     },
 }
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
