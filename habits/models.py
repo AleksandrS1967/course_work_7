@@ -1,7 +1,8 @@
+import datetime
+
 from django.db import models
 
 from config.settings import AUTH_USER_MODEL
-import datetime
 
 NULLABLE = {"null": True, "blank": True}
 
@@ -28,7 +29,8 @@ class Habit(models.Model):
         default=False, verbose_name="Признак приятной привычки"
     )
     connection_habit = models.ForeignKey(
-        "self", on_delete=models.CASCADE, verbose_name="Связанная привычка", **NULLABLE
+        "self", on_delete=models.CASCADE, verbose_name="Связанная привычка",
+        **NULLABLE
     )
     periodicity = models.IntegerField(
         default=3, verbose_name="периодичность напоминания в днях"
@@ -36,8 +38,10 @@ class Habit(models.Model):
     check_periodicity = models.IntegerField(
         default=0, verbose_name="проверка периодичности"
     )
-    reward = models.CharField(max_length=150, verbose_name="Вознаграждение", **NULLABLE)
-    duration = models.TimeField(verbose_name="Продолжительность выполнения", **NULLABLE)
+    reward = models.CharField(max_length=150, verbose_name="Вознаграждение",
+                              **NULLABLE)
+    duration = models.TimeField(verbose_name="Продолжительность выполнения",
+                                **NULLABLE)
     published_bool = models.BooleanField(
         default=True, verbose_name="Признак публичности"
     )

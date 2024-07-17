@@ -1,12 +1,13 @@
-from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
+
 from habits.models import Habit
 from habits.validators import (
-    validate_duration,
-    SimultaneousSelection,
     ConnectionHabitCheck,
     NiceHabitRewardCheck,
+    SimultaneousSelection,
     periodicity_check,
+    validate_duration,
 )
 
 

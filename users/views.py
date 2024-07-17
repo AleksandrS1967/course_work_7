@@ -1,8 +1,7 @@
-from django.shortcuts import render
-
 from rest_framework.generics import CreateAPIView
-from users.models import User
 from rest_framework.permissions import AllowAny
+
+from users.models import User
 from users.serializers import UserSerializer
 
 

@@ -1,9 +1,10 @@
-from rest_framework.viewsets import generics
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import generics
+
 from habits.models import Habit
 from habits.paginations import HabitsPagination
-from habits.serializers import HabitSerializer
 from habits.permissions import IsOwner
+from habits.serializers import HabitSerializer
 
 
 class HabitsCreateAPIView(generics.CreateAPIView):

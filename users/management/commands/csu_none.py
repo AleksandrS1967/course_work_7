@@ -8,4 +8,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         user = User.objects.get(
             email="admin@rambler.ru",
-        ).delete()
+        )
+        user.delete()

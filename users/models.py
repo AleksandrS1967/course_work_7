@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 
 NULLABLE = {"null": True, "blank": True}
 
@@ -13,11 +13,14 @@ class User(AbstractUser):
     )
 
     phone = models.CharField(
-        max_length=35, verbose_name="Телефон", help_text="Укажите телефон", **NULLABLE
+        max_length=35, verbose_name="Телефон", help_text="Укажите телефон",
+        **NULLABLE
     )
-    city = models.CharField(max_length=150, verbose_name="Город", **NULLABLE)
+    city = models.CharField(max_length=150, verbose_name="Город",
+                            **NULLABLE)
     last_login = models.DateTimeField(
-        auto_now=True, verbose_name="Время последнего посещения", **NULLABLE
+        auto_now=True, verbose_name="Время последнего посещения",
+        **NULLABLE
     )
     tg_chat_id = models.CharField(
         max_length=100,

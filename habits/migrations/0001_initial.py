@@ -35,10 +35,12 @@ class Migration(migrations.Migration):
                 (
                     "start_time",
                     models.TimeField(
-                        blank=True, null=True, verbose_name="Время начала выполнения"
+                        blank=True, null=True,
+                        verbose_name="Время начала выполнения"
                     ),
                 ),
-                ("action", models.CharField(max_length=150, verbose_name="Действие")),
+                ("action", models.CharField(max_length=150,
+                                            verbose_name="Действие")),
                 (
                     "nice_habit_bool",
                     models.BooleanField(
@@ -48,7 +50,8 @@ class Migration(migrations.Migration):
                 (
                     "periodicity",
                     models.IntegerField(
-                        default=1, verbose_name="периодичность напоминания в днях"
+                        default=1,
+                        verbose_name="периодичность напоминания в днях"
                     ),
                 ),
                 (
