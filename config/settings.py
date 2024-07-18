@@ -154,7 +154,7 @@ CELERY_BEAT_SCHEDULE = {
     "task-name": {
         "task": "habits.tasks.tg_message",  # Путь к задаче
         "schedule": timedelta(
-            seconds=10
+            days=1
         ),  # Расписание выполнения задачи (например, каждые 10 минут)
     },
 }
