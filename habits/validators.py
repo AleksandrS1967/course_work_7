@@ -12,8 +12,9 @@ class SimultaneousSelection:
     def __call__(self, habit):
         if habit.get(self.field_1) and habit.get(self.field_2):
             raise ValidationError(
-                "Нельзя одновременно выбирать "
-                "связанную привычку и вознаграждение"
+                "Нельзя одновременно выбирать"
+                "связанную привычку и"
+                "вознаграждение"
             )
 
 
@@ -21,8 +22,9 @@ def validate_duration(duration):
     """В связанные привычки могут попасть
     только - приятные."""
     if duration and duration > 120:
-        raise ValidationError("время выполнения не должно"
-                              " превышать 120 секунд")
+        raise ValidationError("время выполнения"
+                              "не должно"
+                              "превышать 120 секунд")
 
 
 class ConnectionHabitCheck:
@@ -48,5 +50,5 @@ class NiceHabitRewardCheck:
 
 def periodicity_check(periodicity):
     if periodicity and periodicity > 7:
-        raise ValidationError("Нельзя выполнять привычку реже,"
-                              "чем 1 раз в 7 дней.")
+        raise ValidationError("Нельзя выполнять привычку"
+                              "реже, чем 1 раз в 7 дней.")

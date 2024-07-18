@@ -26,15 +26,14 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("password", models.CharField(max_length=128,
-                                              verbose_name="password")),
+                ("password", models.CharField(max_length=128, verbose_name="password")),
                 (
                     "is_superuser",
                     models.BooleanField(
                         default=False,
                         help_text="Designates that this user has "
-                                  "all permissions without "
-                                  "explicitly assigning them.",
+                        "all permissions without "
+                        "explicitly assigning them.",
                         verbose_name="superuser status",
                     ),
                 ),
@@ -55,7 +54,7 @@ class Migration(migrations.Migration):
                     models.BooleanField(
                         default=False,
                         help_text="Designates whether the user "
-                                  "can log into this admin site.",
+                        "can log into this admin site.",
                         verbose_name="staff status",
                     ),
                 ),
@@ -64,16 +63,15 @@ class Migration(migrations.Migration):
                     models.BooleanField(
                         default=True,
                         help_text="Designates whether this user should be "
-                                  "treated as active. Unselect this instead "
-                                  "of deleting accounts.",
+                        "treated as active. Unselect this instead "
+                        "of deleting accounts.",
                         verbose_name="active",
                     ),
                 ),
                 (
                     "date_joined",
                     models.DateTimeField(
-                        default=django.utils.timezone.now,
-                        verbose_name="date joined"
+                        default=django.utils.timezone.now, verbose_name="date joined"
                     ),
                 ),
                 (
@@ -98,8 +96,7 @@ class Migration(migrations.Migration):
                 (
                     "city",
                     models.CharField(
-                        blank=True, max_length=150, null=True,
-                        verbose_name="Город"
+                        blank=True, max_length=150, null=True, verbose_name="Город"
                     ),
                 ),
                 (
@@ -115,8 +112,8 @@ class Migration(migrations.Migration):
                     models.ManyToManyField(
                         blank=True,
                         help_text="The groups this user belongs to."
-                                  "A user will get all permissions granted"
-                                  "to each of their groups.",
+                        "A user will get all permissions granted"
+                        "to each of their groups.",
                         related_name="user_set",
                         related_query_name="user",
                         to="auth.group",

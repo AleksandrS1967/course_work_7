@@ -26,5 +26,7 @@ def tg_message():  # отправка уведомлений
                             habit.check_periodicity = 0
                             habit.save()
                             send_telegram_message(
-                                chat_id, f"Пора выполнить привычку: {habit}"
+                                chat_id, f"Сегодня не забудьте "
+                                         f"выполнить привычку: "
+                                         f"{habit} в: {habit_time}"
                             )

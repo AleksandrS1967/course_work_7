@@ -40,8 +40,8 @@ class Habit(models.Model):
     )
     reward = models.CharField(max_length=150, verbose_name="Вознаграждение",
                               **NULLABLE)
-    duration = models.TimeField(verbose_name="Продолжительность выполнения",
-                                **NULLABLE)
+    duration = models.IntegerField(verbose_name="Продолжительность выполнения",
+                                   **NULLABLE)
     published_bool = models.BooleanField(
         default=True, verbose_name="Признак публичности"
     )
