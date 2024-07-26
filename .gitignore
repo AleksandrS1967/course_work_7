@@ -76,3 +76,4 @@ profile_default/
 ipython_config.py
 .env
 .idea
+pg_data
